@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>To-Do List</title>
+  <style>
+    * {
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: sans-serif;
+        background-color: #222;
+        color: rgb(255, 255, 255);
+        text-shadow: rgb(45, 18, 164) 4px 3px 2px ;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      h1 {
+        text-align: center;
+        margin-bottom: 1em;
+        color: rgb(169, 169, 255);
+        text-shadow: rgb(13, 2, 83) 20px 13px 4px ;
+      }
+      
+      #todo-form {
+        width: 80%;
+        max-width: 500px;
+        display: flex;
+        align-items: center;
+        margin-bottom: 1em;
+      }
+      
+      #todo-input {
+        flex-grow: 1;
+        padding: 0.5em;
+        border: none;
+        border-radius: 0.25em;
+        background-color: #fff;
+        color: #222;
+      }
+      
+      #todo-list {
+        width: 80%;
+        max-width: 500px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      
+      #todo-list li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.5em;
+      }
+      
+      #todo-list li input[type="checkbox"] {
+        margin-right: 0.5em;
+      }
+      
+      #todo-list li span {
+        flex-grow: 1;
+        text-decoration: ${props => (props.completed ? "line-through" : "none")};
+        color: ${props => (props.completed ? "#ccc" : "#fff")};
+      }
+      
+      #todo-list li button {
+        margin-left: 0.5em;
+        border: none;
+        background: transparent;
+        color: #fff;
+        cursor: pointer;
+      }
+      
+      @media (max-width: 500px) {
+        #todo-form,
+        #todo-list {
+          width: 100%;
+        }
+      }
+      
+  </style>
+</head>
+<body>
+  <h1>To-Do List</h1>
+
+  <form id="todo-form">
+    <input type="text" id="todo-input" placeholder="Enter a new task">
+    <button type="submit">Add</button>
+  </form>
+
+  <ul id="todo-list"></ul>
+
+  <script src="todo.js"></script>
+</body>
+</html>
